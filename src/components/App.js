@@ -25,14 +25,25 @@ class App extends React.Component {
   findPetsClick = (data) => {
     console.log(this.state.filters.type)
     if (data === "all") {
-      console.log(fetch("/api/pets"))
-      .then (response => response.json)
-      .then (json => console.log(json))
+      fetch("/api/pets")
+      .then(function(response) {
+        return response.json();
+       })
+       .then(function(json){
+          console.log(json)       
+      })
+       
 
     } else {
       fetch("/api/pets?type=" + data)
-      .then (response => response.json)
-      .then (json => console.log(json))
+      .then(function(response) {
+        return response.json();
+       })
+       .then(function(json){
+        console.log(json)       
+
+          console.log(json[0])       
+      })
     }
 
     
