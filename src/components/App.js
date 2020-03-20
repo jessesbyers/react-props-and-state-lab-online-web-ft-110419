@@ -51,6 +51,8 @@ class App extends React.Component {
     // this.setState({ pets: {
     //   id:
     // } })
+
+    // iterate through pets with find pet => pet.id === id
   }
 
   render() {
