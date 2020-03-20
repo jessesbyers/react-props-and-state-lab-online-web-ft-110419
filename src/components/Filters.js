@@ -2,10 +2,10 @@ import React from 'react'
 
 class Filters extends React.Component {
 
-  constructor(props) {
+    constructor(props) {
     super(props);
     this.state = {
-      type: this.props.onChangeType
+      type: this.props.onChangeType,
       // changeType: this.props.onChangeType
       // findPetsClick: this.props.onFindPetsClick
     }
@@ -16,16 +16,20 @@ class Filters extends React.Component {
     let formData = {type: event.target.value }
     this.setState(formData)
     this.props.onChangeType(formData)
+    // this.props.onFindPetsClick(formData)
   }
 
-
+  // handleClick = (event) => {
+  //   console.log(event.target)
+  //   this.props.onFindPetsClick(event.target.value)
+  // }
 
   render() {
     return (
       <div className="ui form">
         <h3>Animal type</h3>
         <div className="field">
-          <select name="type" id="type" onChange={event => this.handleChange(event)} value={this.state.type}>
+          <select name="type" id="type" value={this.state.type} onChange={this.handleChange} >
             <option value="all">All</option>
             <option value="cat">Cats</option>
             <option value="dog">Dogs</option>
@@ -34,7 +38,7 @@ class Filters extends React.Component {
         </div>
 
         <div className="field">
-          <button className="ui secondary button">Find pets</button>
+          <button className="ui secondary button" onClick={this.props.onFindPetsClick} value={this.state.type}>Find pets</button>
         </div>
       </div>
     )
@@ -42,3 +46,4 @@ class Filters extends React.Component {
 }
 
 export default Filters
+
