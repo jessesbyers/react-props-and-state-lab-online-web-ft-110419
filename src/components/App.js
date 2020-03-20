@@ -24,28 +24,27 @@ class App extends React.Component {
 
   findPetsClick = () => {
     console.log(this.state.filters.type)
-
     if (!this.state.filters.type || this.state.filters.type !== "all") {
-      fetch("/api/pets?type=" + this.state.filters.type)
+      fetch("/api/pets?type=" + this.state.filters.type, this)
       .then(function(response) {
         return response.json();
        })
-       .then(function(json){
-          console.log(json)       
+      .then(json => {
+        this.setState({pets: json})
+        console.log(this.state)
       })
        
     } else {
-      fetch("/api/pets")
+      fetch("/api/pets", this)
       .then(function(response) {
         return response.json();
        })
-       .then(function(json){
-        console.log(json)       
+      .then(json => {
+        this.setState({pets: json})
+        console.log(this.state)
       })
     }
   }
-
-
 
   render() {
     return (
