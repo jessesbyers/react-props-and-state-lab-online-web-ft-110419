@@ -16,14 +16,12 @@ class App extends React.Component {
   }
 
   changeType = (data) => {
-    console.log(data.target.value)
     this.setState({filters: {
       type: data.target.value
     }})
   }
 
   findPetsClick = () => {
-    console.log(this.state.filters.type)
     if (!this.state.filters.type || this.state.filters.type !== "all") {
       fetch("/api/pets?type=" + this.state.filters.type, this)
       .then(function(response) {
@@ -31,7 +29,6 @@ class App extends React.Component {
        })
       .then(json => {
         this.setState({pets: json})
-        console.log(this.state)
       })
        
     } else {
@@ -48,6 +45,10 @@ class App extends React.Component {
 
   adoptPet = (id) => {
     console.log(id)
+    console.log(this.state.pets)
+
+
+
     // this.setState({ pets: {
     //   id:
     // } })
