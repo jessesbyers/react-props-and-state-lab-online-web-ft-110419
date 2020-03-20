@@ -22,7 +22,7 @@ class App extends React.Component {
   findPetsClick = (data) => {
     console.log(data)
 
-    if (data !== "all") {
+    if (!data || data !== "all") {
       fetch("/api/pets?type=" + data)
       .then(function(response) {
         return response.json();
