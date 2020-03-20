@@ -15,7 +15,9 @@ class Filters extends React.Component {
     // event.preventDefault()
     let formData = {type: event.target.value }
     this.setState(formData)
-    this.props.onChangeType(formData)
+    // this.props.onChangeType(formData)
+    this.props.onChangeType()
+
     // this.props.onFindPetsClick(formData)
   }
 
