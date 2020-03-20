@@ -38,29 +38,21 @@ class App extends React.Component {
        })
       .then(json => {
         this.setState({pets: json})
-        console.log(this.state)
       })
     }
   }
 
   adoptPet = (id) => {
-    console.log(id)
     this.setState(prevState => {
       let pets = prevState.pets.map(pet => {
         if (pet.id === id) {
-          console.log(pet)
           return {...pet, isAdopted: true}
         } else {
           return pet
         }
       })
-      return {}
+      return { pets }
     })
-
-
- 
-
-    // iterate through pets with find pet => pet.id === id
   }
 
   render() {

@@ -12,13 +12,8 @@ class Pet extends React.Component {
 
   renderButton = () => {
     if (this.props.pet.isAdopted === true) {
-      console.log(this.props.pet.isAdopted)
-      console.log("disabled button")
       return (<button className="ui disabled button">Already adopted</button>)
     } else if (this.props.pet.isAdopted === false) {
-      console.log(this.props.pet.isAdopted)
-      console.log("adopt button")
-
       return (<button 
         className="ui primary button" 
         onClick={e => this.props.onAdoptPet(this.props.pet.id)}
@@ -26,9 +21,6 @@ class Pet extends React.Component {
     }
   }
 
-  
-  
-  
   render() {
     return (
       <div className="card">
