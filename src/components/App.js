@@ -46,12 +46,17 @@ class App extends React.Component {
   adoptPet = (id) => {
     console.log(id)
     console.log(this.state.pets)
+    this.state.pets.map(pet => {
+      if (pet.id === id) {
+        return {...pet, isAdopted: true}
+      } else {
+        return this.state.pets
+      }
+    })
 
 
 
-    // this.setState({ pets: {
-    //   id:
-    // } })
+ 
 
     // iterate through pets with find pet => pet.id === id
   }
